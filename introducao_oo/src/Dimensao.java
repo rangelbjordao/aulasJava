@@ -38,6 +38,10 @@ public class Dimensao {
         this.comprimento = comprimento;
     }
 
+    public  double CalcularVolume() {
+        return altura * largura * comprimento;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
