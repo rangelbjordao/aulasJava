@@ -1,4 +1,5 @@
 import entidades.EpisodioPodcast;
+import entidades.Midia;
 import entidades.Musica;
 import entidades.Playlist;
 
@@ -13,5 +14,7 @@ public class Main {
         var playlist = new Playlist(new ArrayList<>(), "Meus favoritos");
         playlist.adicionarMidia(musica1);
         playlist.adicionarMidia(ep1);
+
+        playlist.reproduzir();
     }
 }

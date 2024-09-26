@@ -2,7 +2,7 @@ package entidades;
 
 import java.util.Objects;
 
-public class Midia {
+public abstract class Midia {
     // Atributos
     private String titulo;
     private int duracao;
