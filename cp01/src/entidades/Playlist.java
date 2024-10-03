@@ -19,9 +19,18 @@ public class Playlist {
 
     public void reproduzir() {
         System.out.println("Reproduzir playlist: " + this.nome);
-        for (var midia : midias)
-            midia.reproduzir();
+        midias.forEach(Midia::reproduzir);
         System.out.println("------------------");
+    }
+
+    public int getDuracaoTotal(){
+        return midias.stream()
+                .mapToInt(Midia::getDuracao)
+                .sum();
+    }
+
+    public int numeroDeMidias(){
+        return  midias.size();
     }
 
     public Playlist() {
