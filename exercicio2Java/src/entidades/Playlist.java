@@ -4,50 +4,54 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Playlist {
-    // Atributos
+    //Atributos
     private String nome;
     private List<Midia> midias;
 
-    // Metodos
-    public void adicionarMidia(Midia midia) {
+    //Metodos
+    public void adicionarMidia(Midia midia){
         midias.add(midia);
     }
 
-    public void removerMidia(Midia midia) {
+    public void removerMidia(Midia midia){
         midias.remove(midia);
     }
 
-    public void reproduzir() {
-        System.out.println("Reproduzir playlist: " + this.nome);
-        midias.forEach(Midia::reproduzir);
-        System.out.println("------------------");
+    public void reproduzir(){
+        System.out.println("Reproduzindo playlist: " + this.nome);
+        midias.forEach(midia -> {
+            midia.reproduzir();
+            System.out.println("--------------------");
+        });
     }
 
-    public int getDuracaoTotal() {
-        return midias.stream()
+    public int getDuracaoTotal(){
+        return midias
+                .stream()
                 .mapToInt(Midia::getDuracao)
                 .sum();
     }
 
-    public List<Midia> getMidiasPorDuracao(int duracao) {
+    public List<Midia> getMidiasPorDuracao(int duracao){
         return midias.stream()
                 .filter(midia -> midia.getDuracao() <= duracao)
                 .toList();
     }
 
-    public List<Midia> getMidiasPorTipo(Class<? extends Midia> tipo) {
+    public List<Midia> getMidiasPorTipo(Class<? extends Midia> tipo){
         return midias.stream()
                 .filter(midia -> midia.getClass().equals(tipo))
                 .toList();
     }
 
-    public List<Midia> getMidiaPorTipo(String sigla) {
+    public List<Midia> getMidiasPorTipo(String sigla){
         var midiasFiltradas = new ArrayList<Midia>();
-        if (sigla.equals("M")) {
+        if(sigla.equals("M")) {
             for (var midia : midias)
                 if (midia instanceof Musica)
                     midiasFiltradas.add(midia);
-        } else {
+        }
+        else {
             for (var midia : midias)
                 if (midia instanceof EpisodioPodcast)
                     midiasFiltradas.add(midia);
@@ -55,52 +59,60 @@ public class Playlist {
         return midiasFiltradas;
     }
 
-    public List<Midia> getMidiasOrdenadasPorDuracao() {
+    public List<Midia> getMidiasOrdenadasPorDuracao(){
         return midias.stream()
                 .sorted(Comparator.comparingInt(Midia::getDuracao))
                 .toList();
     }
 
-    public List<Midia> getMidiasOrdenadasPorTitulo() {
+    public List<Midia> getMidiasOrdenadasPorTitulo(){
         return midias.stream()
                 .sorted(Comparator.comparing(Midia::getTitulo))
                 .toList();
     }
 
-    public Midia getMidiasMaisLongas() {
+    public Midia getMidiaMaisLonga(){
+        // jeito convencional (usando if-else, for, etc)
+        // var midiaMaisLonga = midias.get(0);
+        // for(var midia : midias)
+        //if(midia.getDuracao() > midiaMaisLonga.getDuracao())
+        //midiaMaisLonga = midia;
+
+        // return midiaMaisLonga;
+
         return midias.stream()
                 .max(Comparator.comparingInt(Midia::getDuracao))
                 .orElse(null);
     }
 
-    public List<Midia> getMusicasPorGenero(String genero) {
+    public List<Midia> getMusicasPorGenero(String genero){
         return midias.stream()
                 .filter(midia -> midia instanceof Musica)
                 .filter(midia -> ((Musica) midia).getGenero().equals(genero))
                 .toList();
     }
 
-    public Map<String, List<Midia>> getMidiasAgrupadasPorTipo() {
+    public Map<String, List<Midia>> getMidiasAgrupadasPorTipo(){
         return midias.stream()
                 .collect(Collectors.groupingBy(midia -> midia.getClass().getSimpleName()));
     }
 
-    public Map<String, List<Midia>> getMusicasAgrupadasPorGenero() {
+    public Map<String, List<Midia>> getMusicasAgrupadasPorGenero(){
         return midias.stream()
                 .filter(midia -> midia instanceof Musica)
                 .collect(Collectors.groupingBy(midia -> ((Musica) midia).getGenero()));
     }
 
-    public int numeroDeMidias() {
+    public int numeroDeMidias(){
         return midias.size();
     }
 
     public Playlist() {
     }
 
-    public Playlist(List<Midia> midias, String nome) {
-        this.midias = midias;
+    public Playlist(String nome, List<Midia> midias) {
         this.nome = nome;
+        this.midias = midias;
     }
 
     public String getNome() {
@@ -111,12 +123,12 @@ public class Playlist {
         this.nome = nome;
     }
 
-    public void setMidias(List<Midia> midias) {
-        this.midias = midias;
-    }
-
     public List<Midia> getMidias() {
         return midias;
+    }
+
+    public void setMidias(List<Midia> midias) {
+        this.midias = midias;
     }
 
     @Override
