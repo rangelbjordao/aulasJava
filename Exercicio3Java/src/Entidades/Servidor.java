@@ -3,18 +3,20 @@ package Entidades;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Servidor {
     private String nome;
     private List<Usuario> usuarios;
     private List<Mensagem> mensagens;
 
-    public void adicionarUsuario(Usuario usuario){
+    public void adicionarUsuario(Usuario usuario) {
         usuarios.add(usuario);
     }
 
-    public void removerUsuario(Usuario usuario){
+    public void removerUsuario(Usuario usuario) {
         usuarios.remove(usuario);
     }
 
@@ -48,6 +50,11 @@ public class Servidor {
 
     public int totalDeMensagens() {
         return mensagens.size();
+    }
+
+    public Map<String, List<Mensagem>> getMensagensAgrupadasPorAutor() {
+        return mensagens.stream()
+                .collect(Collectors.groupingBy(Mensagem::getAutor));
     }
 
     public Servidor() {

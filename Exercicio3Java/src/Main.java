@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         var novosUsuarios = new ArrayList<Usuario>();
-        var novosServideos = new ArrayList<Servidor>();
 
         novosUsuarios.add(new Usuario("Alice"));
         novosUsuarios.add(new Usuario("Bob"));
@@ -36,5 +35,7 @@ public class Main {
         System.out.println(servidorProgramacao.getMensagensOrdenadasPorAutor());
 
         System.out.println(servidorProgramacao.totalDeMensagens());
+
+        System.out.println(servidorProgramacao.getMensagensAgrupadasPorAutor());
     }
 }
