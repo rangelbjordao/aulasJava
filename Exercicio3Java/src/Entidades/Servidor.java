@@ -24,34 +24,40 @@ public class Servidor {
         mensagens.add(new Mensagem(autor, conteudo, data));
     }
 
+    // Filtra mensagem por autor
     public List<Mensagem> getMensagensPorAutor(String autor) {
         return mensagens.stream()
                 .filter(mensagem -> mensagem.getAutor().equals(autor))
                 .toList();
     }
 
+    // Filtra mensagem por palavra chave
     public List<Mensagem> getMensagensPorPalavraChave(String palavra) {
         return mensagens.stream()
                 .filter(mensagem -> mensagem.getConteudo().contains(palavra))
                 .toList();
     }
 
+    // Ordena mensagens por data/hora
     public List<Mensagem> getMensagensOrdenadasPorData() {
         return mensagens.stream()
                 .sorted(Comparator.comparing(Mensagem::getData))
                 .toList();
     }
 
+    // Ordenadas mensagens por autor
     public List<Mensagem> getMensagensOrdenadasPorAutor() {
         return mensagens.stream()
                 .sorted(Comparator.comparing(Mensagem::getAutor))
                 .toList();
     }
 
+    // Calcula total de mensagens do servidor
     public int totalDeMensagens() {
         return mensagens.size();
     }
 
+    // Agrupa mensagens por autor
     public Map<String, List<Mensagem>> getMensagensAgrupadasPorAutor() {
         return mensagens.stream()
                 .collect(Collectors.groupingBy(Mensagem::getAutor));

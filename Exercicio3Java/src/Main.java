@@ -11,12 +11,7 @@ public class Main {
         novosUsuarios.add(new Usuario("Alice"));
         novosUsuarios.add(new Usuario("Bob"));
 
-
         var servidorProgramacao = new Servidor("Programacao", new ArrayList<>(), new ArrayList<>());
-
-//        for (var usuario : novosUsuarios) {
-//            servidorProgramacao.adicionarUsuario(usuario);
-//        }
 
         servidorProgramacao.adicionarUsuario(novosUsuarios.get(0));
         servidorProgramacao.adicionarUsuario(novosUsuarios.get(1));
