@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println(novasLicoes);
 
-        novosUsuarios.get(0).realizarLicao(novasLicoes.get(0));
-        novosUsuarios.get(0).realizarLicao(novasLicoes.get(1));
+        novosUsuarios.get(0).realizarExercicio(novasLicoes.get(0));
+        novosUsuarios.get(0).realizarExercicio(novasLicoes.get(1));
     }
 }

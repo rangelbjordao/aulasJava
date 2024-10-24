@@ -7,9 +7,10 @@ public class Curso {
     private String idioma;
     private List<Licao> licoes;
 
-    public void adicionarLicao(Licao licao){
+    public void adicionarLicao(Licao licao) {
         licoes.add(licao);
     }
+
 
     public Curso() {
     }
