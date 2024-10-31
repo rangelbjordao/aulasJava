@@ -8,21 +8,20 @@ public class Curso {
     private String idioma;
     private List<Licao> licoes = new ArrayList<>();
 
-    public void adicionarLicao(Licao licao) {
+    public void adicionarLicao(Licao licao){
         licoes.add(licao);
     }
 
-    public void listarLicoes() {
-        System.out.println("Licoes do curso de " + idioma + ":");
-        for (Licao licao : licoes) {
+    public void listarLicoes(){
+        System.out.println("Lições do curso de " + idioma + ":");
+        for(Licao licao : licoes)
             System.out.println(licao.getTitulo());
-        }
     }
 
     public Curso() {
     }
 
-    public Curso(String idioma) {
+    public Curso(String idioma){
         this.idioma = idioma;
     }
 

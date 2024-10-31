@@ -8,21 +8,20 @@ public class Licao {
     private String titulo;
     private List<Exercicio> exercicios = new ArrayList<>();
 
-    public void adicionarExercicio(Exercicio exercicio) {
+    public void adicionarExercicio(Exercicio exercicio){
         exercicios.add(exercicio);
     }
 
     public void listarExercicios(){
-        System.out.println("Exercicio da licao " + titulo + ":");
-        for (Exercicio exercicio : exercicios) {
+        System.out.println("Exercícios da lição " + titulo + ":");
+        for(Exercicio exercicio : exercicios)
             System.out.println(exercicio.getPergunta());
-        }
     }
 
     public Licao() {
     }
 
-    public Licao(String titulo) {
+    public Licao(String titulo){
         this.titulo = titulo;
     }
 

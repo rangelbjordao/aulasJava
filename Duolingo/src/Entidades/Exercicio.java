@@ -2,16 +2,20 @@ package Entidades;
 
 import java.util.Objects;
 
-public class Exercicio {
+public abstract class Exercicio {
     private String pergunta;
     private String respostaCorreta;
     private int dificuldade;
 
-    public boolean avaliarResposta(String respostaUsuario) {
-        return respostaCorreta.equals(respostaUsuario.trim());
+    public boolean avaliarResposta(String respostaUsuario){
+        return respostaCorreta.equalsIgnoreCase(respostaUsuario.trim());
     }
 
     public Exercicio() {
+    }
+
+    public String getTipo(){
+        return "Exercicio";
     }
 
     public Exercicio(String pergunta, String respostaCorreta, int dificuldade) {
