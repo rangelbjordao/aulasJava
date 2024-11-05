@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -80,3 +79,28 @@ public class Main {
         System.out.println(numerosEmIntervalo1);
     }
 }
+
+
+
+// ========= Exercício 12: Encontrar Strings que Contêm Todas as Vogais =========
+// Nível: Difícil
+        try {
+List<String> wordsVowels1 = Arrays.asList("education", "automobile", "queue", "aeiou");
+List<String> expectedVowels1 = Arrays.asList("education", "aeiou");
+List<String> outputVowels1 = findStringsWithAllVowels(wordsVowels1);
+            assert outputVowels1.equals(expectedVowels1) : "Exercício 12 - Caso de Teste 1 Falhou";
+
+List<String> wordsVowels2 = Arrays.asList("hello", "world");
+List<String> expectedVowels2 = Arrays.asList();
+List<String> outputVowels2 = findStringsWithAllVowels(wordsVowels2);
+            assert outputVowels2.equals(expectedVowels2) : "Exercício 12 - Caso de Teste 2 Falhou";
+
+List<String> wordsVowels3 = Arrays.asList("sequoia", "facetious");
+List<String> expectedVowels3 = Arrays.asList("sequoia","facetious");
+List<String> outputVowels3 = findStringsWithAllVowels(wordsVowels3);
+            assert outputVowels3.equals(expectedVowels3) : "Exercício 12 - Caso de Teste 3 Falhou";
+
+        System.out.println("Exercício 12 passou em todos os casos de teste!");
+        } catch (AssertionError e) {
+        System.out.println("Exercício 12 não passou em todos os casos de teste!");
+        }
