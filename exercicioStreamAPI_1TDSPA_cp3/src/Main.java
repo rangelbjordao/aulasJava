@@ -45,7 +45,6 @@ public class Main {
             assert output3.equals(expected3) : "Exercício 2 - Caso de Teste 3 Falhou";
 
 
-
             System.out.println("Exercício 2 passou em todos os casos de teste!");
         } catch (AssertionError e) {
             System.out.println("Exercício 2 não passou em todos os casos de teste!");
@@ -246,7 +245,7 @@ public class Main {
         // Nível: Difícil
         try {
             List<String> wordsVowels1 = Arrays.asList("education", "automobile", "queue", "aeiou");
-            List<String> expectedVowels1 = Arrays.asList("education", "aeiou");
+            List<String> expectedVowels1 = Arrays.asList("education", "automobile", "aeiou");
             List<String> outputVowels1 = findStringsWithAllVowels(wordsVowels1);
             assert outputVowels1.equals(expectedVowels1) : "Exercício 12 - Caso de Teste 1 Falhou";
 
@@ -256,7 +255,7 @@ public class Main {
             assert outputVowels2.equals(expectedVowels2) : "Exercício 12 - Caso de Teste 2 Falhou";
 
             List<String> wordsVowels3 = Arrays.asList("sequoia", "facetious");
-            List<String> expectedVowels3 = Arrays.asList("sequoia","facetious");
+            List<String> expectedVowels3 = Arrays.asList("sequoia", "facetious");
             List<String> outputVowels3 = findStringsWithAllVowels(wordsVowels3);
             assert outputVowels3.equals(expectedVowels3) : "Exercício 12 - Caso de Teste 3 Falhou";
 
@@ -373,7 +372,7 @@ public class Main {
     // Exercício 4
     public static String findFirstStartingWith(List<String> words, char c) {
         String primerioComecandoCom = words
-            .stream()
+                .stream()
                 .filter(palavra -> palavra.startsWith(String.valueOf(c)))
                 .findFirst()
                 .orElse(null);
@@ -383,11 +382,12 @@ public class Main {
 
     // Exercício 5
     public static int sumOfSquaresOfOddNumbers(List<Integer> numbers) {
-         int somaQuadradoImpares = numbers
-                 .stream()
-                 .filter(numero -> numero % 2 == 1)
-                 .mapToInt(numero -> numero * numero)
-                 .sum();
+        int somaQuadradoImpares = numbers
+                .stream()
+                .filter(numero -> numero % 2 == 1)
+                .mapToInt(numero -> numero * numero)
+                .sum();
+
         return somaQuadradoImpares;
     }
 
@@ -396,6 +396,7 @@ public class Main {
         boolean verificaTodasMaiusculas = strings
                 .stream()
                 .allMatch(p -> p.equals(p.toUpperCase()));
+
         return verificaTodasMaiusculas;
     }
 
@@ -405,6 +406,7 @@ public class Main {
                 .stream()
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
+
         return concatenaComVirgula;
     }
 
@@ -414,7 +416,7 @@ public class Main {
                 .stream()
                 .filter(n -> n > 0)
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
 
         return filtraOrdenaInteiros;
     }
@@ -432,26 +434,32 @@ public class Main {
 
     // Exercício 10
     public static Map<Integer, List<String>> groupStringsByLength(List<String> strings) {
-        // TODO: Implementar usando Stream API
-        return new HashMap<Integer, List<String>>();
+        return strings.stream()
+                .collect(Collectors.groupingBy(String::length));
     }
 
     // Exercício 11
     public static Integer findSecondHighest(List<Integer> numbers) {
-        // TODO: Implementar usando Stream API
-        return 0;
+        return numbers.stream()
+                .distinct() // remove numeros iguais
+                .sorted(Comparator.reverseOrder()) // reverte a ordem
+                .skip(1) // pula o primeiro numero
+                .findFirst()
+                .orElse(null);
     }
 
     // Exercício 12
     public static List<String> findStringsWithAllVowels(List<String> strings) {
-        // TODO: Implementar usando Stream API
-        return new ArrayList<>();
+        return strings.stream()
+                .filter(s -> s.toLowerCase().matches("^(?=.*a)(?=.*e)(?=.*i)(?=.*o)(?=.*u).*$"))
+                .toList();
     }
 
     // Exercício 13
     public static Map<Boolean, List<Integer>> partitionPrimes(List<Integer> numbers) {
-        // TODO: Implementar usando Stream API
-        return new HashMap<Boolean, List<Integer>>();
+        return numbers.stream()
+                .collect(Collectors.partitioningBy(num -> num > 1 && IntStream.range(2, num)
+                        .noneMatch(i -> num % i == 0)));
     }
 
     // Exercício 14
