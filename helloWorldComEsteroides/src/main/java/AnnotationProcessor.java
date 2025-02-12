@@ -2,6 +2,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
+
 public class AnnotationProcessor {
     /**
      * Lê valores do console para cada campo anotado com @DataField.
@@ -32,6 +33,7 @@ public class AnnotationProcessor {
             }
         }
     }
+
     /**
      * Invoca qualquer método anotado com @DisplayName e faz a exibição formatada.
      */
@@ -60,6 +62,7 @@ public class AnnotationProcessor {
             }
         }
     }
+
     /**
      * Método auxiliar para converter a string lida no console em diferentes tipos de campo.
      */
