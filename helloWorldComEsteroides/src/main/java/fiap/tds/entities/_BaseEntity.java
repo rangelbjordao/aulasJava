@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Artista extends _BaseEntity{
-    private String nome;
+public abstract class _BaseEntity {
+    private int id;
+    private boolean deleted;
 }

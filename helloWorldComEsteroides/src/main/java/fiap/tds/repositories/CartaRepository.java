@@ -39,6 +39,20 @@ public class CartaRepository implements CrudRepository<Carta> {
     }
 
     @Override
+    public void delete(Carta object) {
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+    }
+
+    @Override
+    public List<Carta> listarTodos() {
+        return List.of();
+    }
+
+    @Override
     public List<Carta> listar() {
         return cartas;
     }
