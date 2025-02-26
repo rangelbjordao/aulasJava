@@ -11,5 +11,4 @@ public class Colecao extends _BaseEntity{
     private String nome;
     private String codigo;
     private String dataLancamento;
-
 }

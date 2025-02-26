@@ -1,0 +1,23 @@
+[
+  {
+    "nome": "Primeira edicao",
+    "codigo": "1ED",
+    "dataLancamento": "2025-02-10",
+    "id": 0,
+    "deleted": false
+  },
+  {
+    "nome": "Segunda edicao",
+    "codigo": "2ED",
+    "dataLancamento": "2025-02-10",
+    "id": 0,
+    "deleted": false
+  },
+  {
+    "nome": "Terceira edicao",
+    "codigo": "3ED",
+    "dataLancamento": "2025-02-10",
+    "id": 0,
+    "deleted": false
+  }
+]
