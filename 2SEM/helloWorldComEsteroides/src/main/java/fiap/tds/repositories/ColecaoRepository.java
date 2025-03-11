@@ -1,14 +1,15 @@
 package fiap.tds.repositories;
 
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import fiap.tds.Main;
 import fiap.tds.entities.Colecao;
 import fiap.tds.extensions.LocalDateTimeGsonAdapter;
+import fiap.tds.infraestrutura.DatabaseConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +21,13 @@ public class ColecaoRepository
 
     public static Logger logger = LogManager.getLogger(Main.class);
 
-    List<Colecao> colecoes = new ArrayList<>(List.of(
-            new Colecao("Primeira edicao", "1ED", "2025-02-10"),
-            new Colecao("Segunda edicao", "2ED", "2025-02-10"),
-            new Colecao("Terceira edicao", "3ED", "2025-02-10")
-    ));
+    List<Colecao> colecoes = new ArrayList<>(
+            //List.of(
+            //new Colecao("Primeira edicao", "1ED", "2025-02-10"),
+            //new Colecao("Segunda edicao", "2ED", "2025-02-10"),
+            //new Colecao("Terceira edicao", "3ED", "2025-02-10")
+        //)
+        );
 
     @Override
     public void adicionar(Colecao object) {
@@ -64,7 +67,27 @@ public class ColecaoRepository
 
     @Override
     public List<Colecao> listarTodos() {
-        return colecoes;
+        var query = "SELECT * FROM colecao";
+        try {
+            var connection = DatabaseConfig.getConnection();
+            var statement = connection.prepareStatement(query);
+            var result = statement.executeQuery();
+            while (result.next()) {
+                var colecao = new Colecao();
+                colecao.setId(result.getInt("id"));
+                colecao.setDeleted(result.getBoolean("deleted"));
+                colecao.setNome(result.getString("nome"));
+                colecao.setCodigo(result.getString("codigo"));
+                colecao.setDataLancamento(result.getString("datadelancamento"));
+                colecoes.add(colecao);
+            }
+            connection.close();
+            return colecoes;
+        }
+            catch (SQLException e) {
+            logger.error(e);
+        }
+        return null;
     }
 
     @Override
