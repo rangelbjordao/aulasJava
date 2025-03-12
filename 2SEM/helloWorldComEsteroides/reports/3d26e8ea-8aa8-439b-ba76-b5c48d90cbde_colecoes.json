@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Test Collection",
+    "codigo": "TEST001",
+    "dataLancamento": "2025-03-12T12:00:53.366262",
+    "id": 3,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T12:00:54.3180042"
+  },
+  {
+    "nome": "JSON Test",
+    "codigo": "JSON001",
+    "dataLancamento": "2025-03-12T12:00:54.016186800",
+    "id": 4,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T12:00:54.3180042"
+  },
+  {
+    "nome": "setima edicao",
+    "codigo": "7ED",
+    "dataLancamento": "2025-03-11",
+    "id": 1,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T12:00:54.3180042"
+  }
+]
