@@ -1,8 +1,12 @@
 package fiap.tds.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
-// <T> implementa tipo T generico
+// Ao usar o <T> na interface, você está
+// dizendo que a interface é genérica
+// e que o tipo T será definido na
+// implementação
 public interface CrudRepository<T> {
     void adicionar(T object);
     void atualizar(int id, T object);
@@ -14,4 +18,5 @@ public interface CrudRepository<T> {
 
     List<T> listarTodos();
     List<T> listar();
+    Optional<T> buscarPorId(int id);
 }

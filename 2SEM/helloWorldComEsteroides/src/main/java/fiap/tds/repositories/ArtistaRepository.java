@@ -4,32 +4,30 @@ import fiap.tds.entities.Artista;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ArtistaRepository implements CrudRepository<Artista> {
-    List<Artista> artistas = new ArrayList<>();
+    private List<Artista> artistas = new ArrayList<>();
+
 
     @Override
     public void adicionar(Artista object) {
-        artistas.add(object);
+
     }
 
     @Override
     public void atualizar(int id, Artista object) {
-        for (Artista a : artistas) {
-            if (a.getId() == id) {
-                a = object;
-            }
-        }
+
     }
 
     @Override
     public void remover(Artista object) {
-        artistas.remove(object);
+
     }
 
     @Override
     public void remover(int id) {
-        artistas.removeIf(a -> a.getId() == id);
+
     }
 
     @Override
@@ -49,6 +47,11 @@ public class ArtistaRepository implements CrudRepository<Artista> {
 
     @Override
     public List<Artista> listar() {
-        return artistas;
+        return List.of();
+    }
+
+    @Override
+    public Optional<Artista> buscarPorId(int id) {
+        return Optional.empty();
     }
 }

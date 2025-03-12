@@ -1,18 +1,14 @@
 package fiap.tds.repositories;
 
 import fiap.tds.entities.Carta;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class CartaRepository implements CrudRepository<Carta> {
     private List<Carta> cartas = new ArrayList<>();
+
 
     @Override
     public void adicionar(Carta object) {
@@ -21,11 +17,9 @@ public class CartaRepository implements CrudRepository<Carta> {
 
     @Override
     public void atualizar(int id, Carta object) {
-        for (Carta c : cartas) {
-            if (c.getId() == id) {
+        for (Carta c: cartas)
+            if (c.getId() == id)
                 c = object;
-            }
-        }
     }
 
     @Override
@@ -40,6 +34,7 @@ public class CartaRepository implements CrudRepository<Carta> {
 
     @Override
     public void delete(Carta object) {
+
     }
 
     @Override
@@ -55,5 +50,10 @@ public class CartaRepository implements CrudRepository<Carta> {
     @Override
     public List<Carta> listar() {
         return cartas;
+    }
+
+    @Override
+    public Optional<Carta> buscarPorId(int id) {
+        return Optional.empty();
     }
 }

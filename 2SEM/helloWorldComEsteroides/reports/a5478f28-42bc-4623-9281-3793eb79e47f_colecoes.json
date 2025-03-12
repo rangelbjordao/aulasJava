@@ -1,0 +1,50 @@
+[
+  {
+    "nome": "Setima edição",
+    "codigo": "7ED",
+    "dataLancamento": "2025-03-11",
+    "id": 2,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T11:56:49.953181"
+  },
+  {
+    "nome": "Test Collection",
+    "codigo": "TEST001",
+    "dataLancamento": "2025-03-12T11:49:34.859926",
+    "id": 5,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T11:56:49.953181"
+  },
+  {
+    "nome": "JSON Test",
+    "codigo": "JSON001",
+    "dataLancamento": "2025-03-12T11:49:36.459169",
+    "id": 6,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T11:56:49.953181"
+  },
+  {
+    "nome": "Test Collection",
+    "codigo": "TEST001",
+    "dataLancamento": "2025-03-12T11:56:49.062433800",
+    "id": 7,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T11:56:49.953181"
+  },
+  {
+    "nome": "JSON Test",
+    "codigo": "JSON001",
+    "dataLancamento": "2025-03-12T11:56:49.682838900",
+    "id": 8,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T11:56:49.953181"
+  },
+  {
+    "nome": "Oitava edição",
+    "codigo": "8ED",
+    "dataLancamento": "2025-03-11",
+    "id": 1,
+    "deleted": false,
+    "dataCriacao": "2025-03-12T11:56:49.953181"
+  }
+]
