@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="aulasQuarkus" type="QuarkusMavenBridge">
+    <option name="jreName" value="openjdk-23" />
+    <option name="profiles" />
+    <option name="vmOptions" />
+    <option name="workingDir" value="C:\Users\labsfiap\Documents\GitHub\aulasJava\2SEM\code-with-quarkus\code-with-quarkus" />
+    <method v="2" />
+  </configuration>
+</component>
