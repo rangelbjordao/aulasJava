@@ -104,9 +104,10 @@ public class FuncionarioRepository implements CrudRepository<Funcionario> {
     @Override
     public List<Funcionario> listar() {
         return funcionarios.stream()
-                .filter(Funcionario::isDeleted)
+                .filter(f -> !f.isDeleted())
                 .toList();
     }
+
 
     @Override
     public Optional<Funcionario> searchById(int id) {
