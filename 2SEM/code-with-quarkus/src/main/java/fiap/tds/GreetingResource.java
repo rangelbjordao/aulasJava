@@ -18,21 +18,21 @@ public class GreetingResource {
     @GET
     @Path("/json")
     @Produces(MediaType.APPLICATION_JSON)
-    public String helloJson(){
+    public String helloJson() {
         return "{\"message\": \"Hello from Quarkus REST\"}";
     }
 
     @GET
     @Path("/myentityjson")
     @Produces(MediaType.APPLICATION_JSON)
-    public MyEntity myEntityJson(){
+    public MyEntity myEntityJson() {
         return new MyEntity(1, "My entity");
     }
 
     @GET
     @Path("/xml")
     @Produces(MediaType.APPLICATION_XML)
-    public String helloXML(){
+    public String helloXML() {
         return "<message>Hello from Quarkus REST</message>";
     }
 }
